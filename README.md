@@ -11,7 +11,7 @@ npm install --save redux-gatorade
 
 ## What is this magic? How does it work?
 
-More info coming soon.
+More info coming soon..
 
 
 ## License
