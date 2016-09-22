@@ -1,4 +1,4 @@
-# redux-gatorade
+# Redux Gatorade - Keeping your application state hydrated
 
 _redux library that helps out in hydrating state from URL parameters_
 

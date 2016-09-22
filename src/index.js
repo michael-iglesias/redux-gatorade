@@ -1,28 +1,21 @@
-function isFunction (obj) {
-  return !!(obj && obj.constructor && obj.call && obj.apply)
-}
+import * as GatoradeConstants from './constants';
 
-function createActionHandler (ignore) {
-  // redux-ignore higher order reducer
-  return function handleAction (reducer, actions = []) {
-    const predicate = isFunction(actions)
-        ? actions
-        : (action) => actions.indexOf(action.type) >= 0
+export default function gatoradeReducer (reducer, params = []) {
+  const INITIAL_STATE = reducer(undefined, {});
 
-    const initialState = reducer(undefined, {})
+  return function (state = INITIAL_STATE, action) {
+    switch (action.type) {
+      case GatoradeConstants.HYDRATE_STATE:
+        return Object.assign({}, state, {
+          urlParameters: params.reduce((acc, currVal) => {
+            acc[currVal] = action.payload[currVal] || null;
 
-    return (state = initialState, action) => {
-      if (predicate(action)) {
-        return ignore ? state : reducer(state, action)
-      }
+            return acc;
+          }, {})
+        });
 
-      return ignore ? reducer(state, action) : state
+      default:
+        return reducer(state, action);
     }
-  }
+  };
 }
-
-export const ignoreActions = createActionHandler(true)
-export const filterActions = createActionHandler(false)
-
-export default ignoreActions
-// /redux-ignore
