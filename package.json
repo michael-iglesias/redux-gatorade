@@ -1,6 +1,6 @@
 {
   "name": "redux-gatorade",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "higher-order reducer to hydrate state from URL parameters",
   "main": "lib/index.js",
   "scripts": {
