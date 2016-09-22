@@ -1,3 +1,4 @@
+import {pullAllWith as _pullAllWith, isEqual as _isEqual} from 'lodash';
 import {curry as r_curry} from 'ramda'; // eslint-disable-line camelcase
 
 function processor (selectParams, reqParams = [], funcPipeline) {
@@ -14,4 +15,9 @@ function processor (selectParams, reqParams = [], funcPipeline) {
 
 let processUrlParameters = r_curry(processor);
 
-export default processUrlParameters;
+module.exports = {
+  processUrlParameters,
+  pluckProcessedParameters (allParams, selectParams) {
+    return _pullAllWith(allParams, selectParams, _isEqual);
+  }
+};
