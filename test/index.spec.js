@@ -1,10 +1,10 @@
 import assert from 'assert';
 import { createStore } from 'redux';
-import gatoradeReducer, {GatoradeConstants} from '../src/index';
+import hydrationReducer, {HydrationConstants} from '../src/index';
 
 let reducer = (state = {}, action) => {
   switch (action.type) {
-    case GatoradeConstants.HYDRATE_STATE:
+    case HydrationConstants.HYDRATE_STATE:
       return Object.assign({}, state, {
         urlParameters: action.payload
       });
@@ -13,7 +13,7 @@ let reducer = (state = {}, action) => {
   }
 };
 
-let wrappedReducer = gatoradeReducer(reducer, ['urlparam1', 'urlparam2']);
+let wrappedReducer = hydrationReducer(reducer, ['urlparam1', 'urlparam2']);
 
 describe('filterActions()', () => {
   it('should return an initial state when a redux store is created', () => {
