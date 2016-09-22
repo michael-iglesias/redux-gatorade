@@ -1,10 +1,10 @@
 import assert from 'assert';
 import { createStore } from 'redux';
-import hydrationReducer, {HydrationConstants} from '../src/index';
+import * as ReduxGatorade from '../src/index';
 
 let reducer = (state = {}, action) => {
   switch (action.type) {
-    case HydrationConstants.HYDRATE_STATE:
+    case ReduxGatorade.HydrationConstants.HYDRATE_STATE:
       return Object.assign({}, state, {
         urlParameters: action.payload
       });
@@ -13,9 +13,27 @@ let reducer = (state = {}, action) => {
   }
 };
 
-let wrappedReducer = hydrationReducer(reducer, ['urlparam1', 'urlparam2']);
+describe('HydrationReducer Tests', () => {
+  let wrappedReducer;
 
-describe('filterActions()', () => {
+  beforeEach(() => {
+    wrappedReducer = ReduxGatorade.hydrationReducer(reducer);
+  });
+
+  it('should correctly set { urlParameters: {} } when hydrateFromUrlParams(params :: obj) is invoked', () => {
+    const params = {
+      foo: 'bar',
+      baz: 'asdf'
+    };
+
+    assert({
+      urlParameters: {
+        foo: 'bar',
+        baz: 'asdf'
+      }
+    }, reducer(undefined, ReduxGatorade.HydrationActions.hydrateFromUrlParams(params)));
+  });
+
   it('should return an initial state when a redux store is created', () => {
     let store = createStore(wrappedReducer);
 
