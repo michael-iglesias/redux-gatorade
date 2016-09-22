@@ -1,7 +1,6 @@
 import assert from 'assert';
 import { createStore } from 'redux';
-import GatoradeReducer from '../src/index';
-import * as GatoradeConstants from '../src/constants';
+import gatoradeReducer, {GatoradeConstants} from '../src/index';
 
 let reducer = (state = {}, action) => {
   switch (action.type) {
@@ -14,7 +13,7 @@ let reducer = (state = {}, action) => {
   }
 };
 
-let wrappedReducer = GatoradeReducer(reducer, ['urlparam1', 'urlparam2']);
+let wrappedReducer = gatoradeReducer(reducer, ['urlparam1', 'urlparam2']);
 
 describe('filterActions()', () => {
   it('should return an initial state when a redux store is created', () => {

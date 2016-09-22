@@ -1,4 +1,6 @@
 import * as GatoradeConstants from './constants';
+import * as GatoradeActions from './actions';
+export {GatoradeActions, GatoradeConstants};
 
 export default function gatoradeReducer (reducer, params = []) {
   const INITIAL_STATE = reducer(undefined, {});
