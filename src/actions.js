@@ -1,9 +1,9 @@
-import * as GatoradeConstants from './constants';
+import HydrationConstants from './constants';
 
 module.exports = {
   hydrateFromUrlParams (params = {}) {
     return {
-      type: GatoradeConstants.HYDRATE_STATE,
+      type: HydrationConstants.HYDRATE_STATE,
       payload: params
     };
   }
