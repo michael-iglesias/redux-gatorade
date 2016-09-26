@@ -1,3 +1,4 @@
+import {pipeP as _pipeP} from 'ramda';
 import {pullAllWith as _pullAllWith, isEqual as _isEqual} from 'lodash';
 
 module.exports = {
@@ -15,5 +16,7 @@ module.exports = {
 
   pluckProcessedParameters (allParams, selectParams) {
     return _pullAllWith(allParams, selectParams, _isEqual);
-  }
+  },
+
+  pipeP: _pipeP
 };

@@ -1,5 +1,11 @@
-export {default as HydrationReducer} from './reducer';
-export {default as HydrationConstants} from './constants';
-export {default as HydrationActions} from './actions';
-export {default as HydrationHelpers} from './helpers';
-export {default as pipeP} from 'ramda';
+import HydrationReducer from './reducer';
+import HydrationConstants from './constants';
+import HydrationActions from './actions';
+import HydrationHelpers from './helpers';
+
+module.exports = {
+  HydrationReducer,
+  HydrationConstants,
+  HydrationActions,
+  HydrationHelpers
+};
