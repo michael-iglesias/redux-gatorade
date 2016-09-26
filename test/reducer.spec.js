@@ -1,6 +1,6 @@
 import assert from 'assert';
 import { createStore } from 'redux';
-import * as ReduxGatorade from '../src/index';
+import ReduxGatorade from '../src/index';
 
 let reducer = (state = {}, action) => {
   switch (action.type) {
