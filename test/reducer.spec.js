@@ -17,7 +17,7 @@ describe('HydrationReducer Tests', () => {
   let wrappedReducer;
 
   beforeEach(() => {
-    wrappedReducer = ReduxGatorade.HydrationReducer(reducer);
+    wrappedReducer = ReduxGatorade.HydrationReducer(reducer, ['year', 'make']);
   });
 
   it('should correctly set { urlParameters: {} } when hydrateFromUrlParams(params :: obj) is invoked', () => {
