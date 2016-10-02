@@ -11,7 +11,7 @@ npm install --save redux-gatorade
 
 ## What is included?
 
-### I. A higher-order reducer - HydrationReducer
+### I. A higher-order reducer: HydrationReducer
 
 HydrationReducer :: (Reducer, params) -> Reducer
 ```
@@ -37,7 +37,7 @@ _NOTE: The new reducer returned by HydrationReducer() is now waiting for an acti
 }
 ```
 
-### II. Actions - 1) hydrateFromUrlParams() - which will dispatch action type of 'redux-gatorade/HYDRATE_FROM_URL_PARAMS'
+### II. Actions: 1) hydrateFromUrlParams() - which will dispatch action type of 'redux-gatorade/HYDRATE_FROM_URL_PARAMS'
 ```
 import { HydrationActions } from 'redux-gatorade';
 
